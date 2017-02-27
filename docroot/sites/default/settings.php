@@ -720,6 +720,10 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
 $settings['trusted_host_patterns'] = array(
 	'^mmscraps\.com$',
 	'^.+\.mmscraps\.com$',
+	'^mmscraps\.dd$',
+	'^.+\.mmscraps\.dd$',
+	'^mmscraps\.dd\:8083$',
+	'^.+\.mmscraps\.dd\:8083$',
 );
 
 /**
