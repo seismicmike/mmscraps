@@ -745,5 +745,20 @@ $databases['default']['default'] = array (
   'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
   'driver' => 'mysql',
 );
+
+/**
+ * Load local development override configuration, if available.
+ *
+ * Use settings.local.php to override variables on secondary (staging,
+ * development, etc) installations of this site. Typically used to disable
+ * caching, JavaScript/CSS compression, re-routing of outgoing emails, and
+ * other things that should not happen on development and testing sites.
+ *
+ * Keep this code block at the end of this file to take full effect.
+ */
+if (file_exists(__DIR__ . '/settings.local.php')) {
+  include __DIR__ . '/settings.local.php';
+}
+
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_QEAlpOqVM7jTQhLcixRdTh2idkkAxKN7CWmCs-Lg-Q5LmhDzHMYYulEM7VA5z_g7b_bB2UNkGw/sync';
