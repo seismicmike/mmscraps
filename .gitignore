@@ -6,6 +6,7 @@ docroot/files/
 docroot/sites/*/files
 docroot/sites/*/private
 docroot/sites/*.dd
+docroot/private*
 
 # Ignore default text files
 docroot/robots.txt
