@@ -1,20 +1,13 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\views\Plugin\views\field\FieldPluginBase.
- */
-
 namespace Drupal\views\Plugin\views\field;
 
 use Drupal\Component\Utility\Html;
-use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Render\MarkupInterface;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Component\Utility\UrlHelper;
 use Drupal\Component\Utility\Xss;
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Renderer;
 use Drupal\Core\Url as CoreUrl;
 use Drupal\views\Plugin\views\HandlerBase;
 use Drupal\views\Plugin\views\display\DisplayPluginBase;
@@ -75,8 +68,8 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
    */
   const RENDER_TEXT_PHASE_EMPTY = 2;
 
-  var $field_alias = 'unknown';
-  var $aliases = array();
+  public $field_alias = 'unknown';
+  public $aliases = array();
 
   /**
    * The field value prior to any rewriting.
@@ -86,13 +79,13 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
   public $original_value = NULL;
 
   /**
-   * Stores additional fields that get added to the query.
+   * Stores additional fields which get added to the query.
    *
    * The generated aliases are stored in $aliases.
    *
    * @var array
    */
-  var $additional_fields = array();
+  public $additional_fields = array();
 
   /**
    * The link generator.
@@ -107,6 +100,13 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
    * @var \Drupal\Core\Render\RendererInterface
    */
   protected $renderer;
+
+  /**
+   * Keeps track of the last render index.
+   *
+   * @var int|NULL
+   */
+  protected $lastRenderIndex;
 
   /**
    * {@inheritdoc}
@@ -150,11 +150,11 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
    * Add 'additional' fields to the query.
    *
    * @param $fields
-   * An array of fields. The key is an identifier used to later find the
-   * field alias used. The value is either a string in which case it's
-   * assumed to be a field on this handler's table; or it's an array in the
-   * form of
-   * @code array('table' => $tablename, 'field' => $fieldname) @endcode
+   *   An array of fields. The key is an identifier used to later find the
+   *   field alias used. The value is either a string in which case it's
+   *   assumed to be a field on this handler's table; or it's an array in the
+   *   form of
+   *   @code array('table' => $tablename, 'field' => $fieldname) @endcode
    */
   protected function addAdditionalFields($fields = NULL) {
     if (!isset($fields)) {
@@ -308,7 +308,7 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
     if (!isset($elements)) {
       // @todo Add possible html5 elements.
       $elements = array(
-        '' => $this->t(' - Use default -'),
+        '' => $this->t('- Use default -'),
         '0' => $this->t('- None -')
       );
       $elements += \Drupal::config('views.settings')->get('field_rewrite_elements');
@@ -775,7 +775,7 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
       $form['alter']['path_case'] = array(
         '#type' => 'select',
         '#title' => $this->t('Transform the case'),
-        '#description' => $this->t('When printing url paths, how to transform the case of the filter value.'),
+        '#description' => $this->t('When printing URL paths, how to transform the case of the filter value.'),
         '#states' => array(
           'visible' => array(
             ':input[name="options[alter][make_link]"]' => array('checked' => TRUE),
@@ -1129,6 +1129,10 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
    * {@inheritdoc}
    */
   public function advancedRender(ResultRow $values) {
+    // Clean up values from previous render calls.
+    if ($this->lastRenderIndex != $values->index) {
+      $this->last_render_text = '';
+    }
     if ($this->allowAdvancedRender() && $this instanceof MultiItemsFieldHandlerInterface) {
       $raw_items = $this->getItems($values);
       // If there are no items, set the original value to NULL.
@@ -1188,7 +1192,10 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
         $this->last_render = $this->renderText($alter);
       }
     }
-
+    // If we rendered something, update the last render index.
+    if ((string) $this->last_render !== '') {
+      $this->lastRenderIndex = $values->index;
+    }
     return $this->last_render;
   }
 
@@ -1221,7 +1228,7 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
     // alterations made by this method. Any alterations or replacements made
     // within this method need to ensure that at the minimum the result is
     // XSS admin filtered. See self::renderAltered() as an example that does.
-    $value_is_safe = SafeMarkup::isSafe($this->last_render);
+    $value_is_safe = $this->last_render instanceof MarkupInterface;
     // Cast to a string so that empty checks and string functions work as
     // expected.
     $value = (string) $this->last_render;
@@ -1229,6 +1236,12 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
     if (!empty($alter['alter_text']) && $alter['text'] !== '') {
       $tokens = $this->getRenderTokens($alter);
       $value = $this->renderAltered($alter, $tokens);
+      // $alter['text'] is entered through the views admin UI and will be safe
+      // because the output of $this->renderAltered() is run through
+      // Xss::filterAdmin().
+      // @see \Drupal\views\Plugin\views\PluginBase::viewsTokenReplace()
+      // @see \Drupal\Component\Utility\Xss::filterAdmin()
+      $value_is_safe = TRUE;
     }
 
     if (!empty($this->options['alter']['trim_whitespace'])) {
@@ -1278,7 +1291,20 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
 
         // @todo Views should expect and store a leading /. See
         //   https://www.drupal.org/node/2423913.
-        $more_link = ' ' . $this->linkGenerator()->generate($more_link_text, CoreUrl::fromUserInput('/' . $more_link_path, array('attributes' => array('class' => array('views-more-link')))));
+        $options = array(
+          'attributes' => array(
+            'class' => array(
+              'views-more-link',
+            ),
+          ),
+        );
+        if (UrlHelper::isExternal($more_link_path)) {
+          $more_link_url = CoreUrl::fromUri($more_link_path, $options);
+        }
+        else {
+          $more_link_url = CoreUrl::fromUserInput('/' . $more_link_path, $options);
+        }
+        $more_link = ' ' . $this->linkGenerator()->generate($more_link_text, $more_link_url);
       }
     }
 
@@ -1299,9 +1325,10 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
     }
 
     // Preserve whether or not the string is safe. Since $more_link comes from
-    // \Drupal::l(), it is safe to append. Use SafeMarkup::isSafe() here because
-    // renderAsLink() can return both safe and unsafe values.
-    if (SafeMarkup::isSafe($value)) {
+    // \Drupal::l(), it is safe to append. Check if the value is an instance of
+    // \Drupal\Component\Render\MarkupInterface here because renderAsLink()
+    // can return both safe and unsafe values.
+    if ($value instanceof MarkupInterface) {
       return ViewsRenderPipelineMarkup::create($value . $more_link);
     }
     else {
@@ -1681,8 +1708,7 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
    * fields as a list. For example, the field that displays all terms
    * on a node might have tokens for the tid and the term.
    *
-   * By convention, tokens should follow the format of {{ token
-   * subtoken }}
+   * By convention, tokens should follow the format of {{ token__subtoken }}
    * where token is the field ID and subtoken is the field. If the
    * field ID is terms, then the tokens might be {{ terms__tid }} and
    * {{ terms__name }}.
@@ -1724,13 +1750,13 @@ abstract class FieldPluginBase extends HandlerBase implements FieldHandlerInterf
     $display = $this->view->display_handler->display;
 
     if (!empty($display)) {
-      $themes[] = $hook . '__' . $this->view->storage->id()  . '__' . $display['id'] . '__' . $this->options['id'];
-      $themes[] = $hook . '__' . $this->view->storage->id()  . '__' . $display['id'];
+      $themes[] = $hook . '__' . $this->view->storage->id() . '__' . $display['id'] . '__' . $this->options['id'];
+      $themes[] = $hook . '__' . $this->view->storage->id() . '__' . $display['id'];
       $themes[] = $hook . '__' . $display['id'] . '__' . $this->options['id'];
       $themes[] = $hook . '__' . $display['id'];
       if ($display['id'] != $display['display_plugin']) {
-        $themes[] = $hook . '__' . $this->view->storage->id()  . '__' . $display['display_plugin'] . '__' . $this->options['id'];
-        $themes[] = $hook . '__' . $this->view->storage->id()  . '__' . $display['display_plugin'];
+        $themes[] = $hook . '__' . $this->view->storage->id() . '__' . $display['display_plugin'] . '__' . $this->options['id'];
+        $themes[] = $hook . '__' . $this->view->storage->id() . '__' . $display['display_plugin'];
         $themes[] = $hook . '__' . $display['display_plugin'] . '__' . $this->options['id'];
         $themes[] = $hook . '__' . $display['display_plugin'];
       }
