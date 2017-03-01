@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\views\Plugin\Derivative\ViewsBlock.
- */
-
 namespace Drupal\views\Plugin\Derivative;
 
 use Drupal\Core\Entity\EntityStorageInterface;
@@ -15,7 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Provides block plugin definitions for all Views block displays.
  *
- * @see \Drupal\views\Plugin\block\block\ViewsBlock
+ * @see \Drupal\views\Plugin\Block\ViewsBlock
  */
 class ViewsBlock implements ContainerDeriverInterface {
 

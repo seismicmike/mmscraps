@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\scheduler\Plugin\Validation\Constraint\SchedulerUnpublishOnConstraintValidator.
- */
-
 namespace Drupal\scheduler\Plugin\Validation\Constraint;
 
 use Symfony\Component\Validator\Constraint;
@@ -19,7 +14,8 @@ class SchedulerUnpublishOnConstraintValidator extends ConstraintValidator {
    * {@inheritdoc}
    */
   public function validate($entity, Constraint $constraint) {
-    $scheduler_unpublish_required = $entity->getEntity()->type->entity->getThirdPartySetting('scheduler', 'unpublish_required', SCHEDULER_DEFAULT_UNPUBLISH_REQUIRED);
+    $default_unpublish_required = \Drupal::config('scheduler.settings')->get('default_unpublish_required');
+    $scheduler_unpublish_required = $entity->getEntity()->type->entity->getThirdPartySetting('scheduler', 'unpublish_required', $default_unpublish_required);
     $publish_on = $entity->getEntity()->publish_on->value;
     $unpublish_on = $entity->value;
     $status = $entity->getEntity()->status->value;
