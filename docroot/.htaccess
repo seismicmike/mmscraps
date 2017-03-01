@@ -1,6 +1,10 @@
 #
 # Apache/PHP/Drupal settings:
 #
+AuthType Basic
+AuthName "MM Scraps Stage"
+AuthUserFile /home/mmscraps/auth/htpass
+Require valid-user
 
 AddType application/x-httpd-php55  .php55 .php
 
