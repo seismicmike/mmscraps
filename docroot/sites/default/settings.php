@@ -87,18 +87,18 @@
  * @endcode
  */
  $databases = array(
-	'default' => array(
-		'default' => array(
-			'database' => 'mmscraps_drupal',
-			'username' => 'mmscraps_drupal',
-			'password' => 'AuntJane5881254',
-			'host' => 'localhost',
-			'port' => '3306',
-			'driver' => 'mysql',
-			'prefix' => '',
-			'colation' => 'utf8mb4_general_ci',
-		),
-	),
+  'default' => array(
+    'default' => array(
+      'database' => 'mmscraps_drupal',
+      'username' => 'mmscraps_drupal',
+      'password' => 'AuntJane5881254',
+      'host' => 'localhost',
+      'port' => '3306',
+      'driver' => 'mysql',
+      'prefix' => '',
+      'colation' => 'utf8mb4_general_ci',
+    ),
+  ),
 );
 
 /**
@@ -718,8 +718,12 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  */
 
 $settings['trusted_host_patterns'] = array(
-	'^mmscraps\.com$',
-	'^.+\.mmscraps\.com$',
+  '^mmscraps\.com$',
+  '^.+\.mmscraps\.com$',
+  '^mmscraps\.dd\:8083',
+  '^.+\.mmscraps\.dd\:8083',
+  '^mmscraps\.dd',
+  '^.+\.mmscraps\.dd',
 );
 
 /**
@@ -747,3 +751,7 @@ $databases['default']['default'] = array (
 );
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = 'sites/default/files/config_QEAlpOqVM7jTQhLcixRdTh2idkkAxKN7CWmCs-Lg-Q5LmhDzHMYYulEM7VA5z_g7b_bB2UNkGw/sync';
+
+if (file_exists(__DIR__ . '/settings.local.php')) {
+	require_once __DIR__ . '/settings.local.php';
+}
