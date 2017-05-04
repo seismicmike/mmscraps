@@ -19,32 +19,90 @@ backup_migrate.profile.*:
       type: string
       label: 'Timestamp Format'
 
-backup_migrate.schedule.*:
+backup_migrate.backup_migrate_schedule.*:
   type: config_entity
-  label: 'Backup and Migrate schedule'
+  label: 'Backup and Migrate Schedule'
   mapping:
-    name:
+    id:
       type: string
+      label: 'ID'
     label:
       type: label
-      label: 'Label'
+      label: 'Schedule Name'
+    uuid:
+      type: string
+    enabled:
+      type: boolean
+      label: 'Enabled'
+    keep:
+      type: integer
+      label: 'Backups to keep'
+    period:
+      type: integer
+      label: 'Frequency'
+    cron:
+      type: boolean
+      label: 'Run on cron'
+    source_id:
+      type: string
+      label: 'Source'
+    destination_id:
+      type: string
+      label: 'Destination'
+    settings_profile_id:
+      type: string
+      label: 'Settings Profile'
 
-backup_migrate.source.*:
+backup_migrate.backup_migrate_settings.*:
   type: config_entity
-  label: 'Backup and Migrate backup source'
+  label: 'Backup and Migrate Settings Profile'
   mapping:
-    name:
+    id:
       type: string
+      label: 'ID'
     label:
       type: label
       label: 'Label'
+    uuid:
+      type: string
+    config:
+      type: mapping
+      label: 'Configuration'
 
-backup_migrate.destination.*:
+backup_migrate.backup_migrate_destination.*:
   type: config_entity
-  label: 'Backup and Migrate backup destination'
+  label: 'Backup Destination'
   mapping:
-    name:
+    id:
       type: string
+      label: 'ID'
     label:
       type: label
       label: 'Label'
+    uuid:
+      type: string
+    type:
+      type: string
+      label: 'Destination Type'
+    config:
+      type: mapping
+      label: 'Configuration'
+
+backup_migrate.backup_migrate_source.*:
+  type: config_entity
+  label: 'Backup Source'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    type:
+      type: string
+      label: 'Source Type'
+    config:
+      type: mapping
+      label: 'Configuration'
