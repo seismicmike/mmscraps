@@ -1,0 +1,5 @@
+services:
+  tour_ui.controller:
+    class: Drupal\tour_ui\Routing\TourUIController
+    arguments: ['@plugin.manager.entity']
+
