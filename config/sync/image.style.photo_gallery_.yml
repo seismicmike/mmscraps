@@ -1,0 +1,14 @@
+uuid: b5c1d924-92cb-4f09-ae2c-440dd3fd45a7
+langcode: en
+status: true
+dependencies: {  }
+name: photo_gallery_
+label: 'Photo Gallery (200x200)'
+effects:
+  3e4039b4-f418-47e3-8a02-2f9bb542dc2b:
+    uuid: 3e4039b4-f418-47e3-8a02-2f9bb542dc2b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 200
+      height: 200

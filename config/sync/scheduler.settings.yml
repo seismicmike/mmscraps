@@ -1,0 +1,9 @@
+allow_date_only: false
+date_format: 'Y-m-d H:i:s'
+date_only_format: Y-m-d
+default_time: '00:00:00'
+lightweight_cron_access_key: f791c7666de4633c2e3f
+log: true
+time_only_format: 'H:i:s'
+_core:
+  default_config_hash: FSxvj4EMs4htnSvjeaP4IERWOf-f-WdA2Hg0YbWZsjE

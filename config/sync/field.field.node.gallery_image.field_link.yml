@@ -1,0 +1,23 @@
+uuid: 9a2496c0-09d5-473b-8e06-062b48ee6b28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.gallery_image
+  module:
+    - link
+id: node.gallery_image.field_link
+field_name: field_link
+entity_type: node
+bundle: gallery_image
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

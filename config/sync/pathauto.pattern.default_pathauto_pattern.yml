@@ -1,0 +1,25 @@
+uuid: add1fbd6-23ff-4e32-8baa-3d30ebecc6a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default_pathauto_pattern
+label: 'Default Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: '[node:title]'
+selection_criteria:
+  e42d4380-4c33-4190-8272-221af6384e59:
+    id: node_type
+    bundles:
+      article: article
+      blog_train: blog_train
+      gallery_image: gallery_image
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: e42d4380-4c33-4190-8272-221af6384e59
+selection_logic: and
+weight: -5
+relationships: {  }
