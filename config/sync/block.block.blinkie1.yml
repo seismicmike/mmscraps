@@ -1,0 +1,25 @@
+uuid: 562ce3df-8863-4003-8346-703097dced7e
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:e97b49b0-aadd-427c-8500-e5b360d84f75'
+  module:
+    - block_content
+  theme:
+    - blog_themes
+id: blinkie1
+theme: blog_themes
+region: sidebar_first
+weight: null
+provider: null
+plugin: 'block_content:e97b49b0-aadd-427c-8500-e5b360d84f75'
+settings:
+  id: 'block_content:e97b49b0-aadd-427c-8500-e5b360d84f75'
+  label: Blinkie1
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

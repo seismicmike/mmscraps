@@ -1,0 +1,14 @@
+uuid: 312a20ca-a83e-4d1c-ad00-bdead39d86e0
+langcode: en
+status: true
+dependencies: {  }
+name: photo_gallery_250x250
+label: 'Photo Gallery (250x250)'
+effects:
+  87cfed7f-9d45-46f8-b500-fb8306406e33:
+    uuid: 87cfed7f-9d45-46f8-b500-fb8306406e33
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 250

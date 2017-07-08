@@ -765,4 +765,7 @@ if (file_exists(__DIR__ . '/settings.local.php')) {
 }
 
 $settings['install_profile'] = 'standard';
-$config_directories['sync'] = 'sites/default/files/config_QEAlpOqVM7jTQhLcixRdTh2idkkAxKN7CWmCs-Lg-Q5LmhDzHMYYulEM7VA5z_g7b_bB2UNkGw/sync';
+// $config_directories['sync'] = 'sites/default/files/config_QEAlpOqVM7jTQhLcixRdTh2idkkAxKN7CWmCs-Lg-Q5LmhDzHMYYulEM7VA5z_g7b_bB2UNkGw/sync';
+$config_directories = array(
+  CONFIG_SYNC_DIRECTORY => dirname(DRUPAL_ROOT) . '/config/sync',
+);
