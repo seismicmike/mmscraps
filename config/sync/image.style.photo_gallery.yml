@@ -1,0 +1,14 @@
+uuid: 17d5d04e-9354-4f4b-9800-f634e028e08b
+langcode: en
+status: true
+dependencies: {  }
+name: photo_gallery
+label: 'Photo Gallery (300 x 300)'
+effects:
+  57214a9a-8931-4ba2-a72b-431fcbeffb40:
+    uuid: 57214a9a-8931-4ba2-a72b-431fcbeffb40
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 300

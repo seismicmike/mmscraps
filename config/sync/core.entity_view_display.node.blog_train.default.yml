@@ -1,0 +1,37 @@
+uuid: f8049d0c-5076-48b6-b502-02957610edd1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.blog_train.body
+    - field.field.node.blog_train.field_link
+    - node.type.blog_train
+  module:
+    - link
+    - text
+    - user
+id: node.blog_train.default
+targetEntityType: node
+bundle: blog_train
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+  field_link:
+    weight: 102
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+  links:
+    weight: 100
+hidden: {  }

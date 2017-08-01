@@ -1,0 +1,21 @@
+uuid: 2efe34ab-af88-42cc-8d1e-30fcba60b23e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.gallery_image.field_gallery_image
+    - field.field.node.gallery_image.field_link
+    - node.type.gallery_image
+  module:
+    - user
+id: node.gallery_image.teaser
+targetEntityType: node
+bundle: gallery_image
+mode: teaser
+content:
+  links:
+    weight: 100
+hidden:
+  field_gallery_image: true
+  field_link: true

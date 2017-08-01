@@ -1,0 +1,14 @@
+uuid: 09ced05e-645b-491a-b705-056e9e489556
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: c4zaT5cyPxuTXI6JOWt3qRtMvICT9tHB6d9a5VG-CmQ
+id: feedback
+label: 'Website feedback'
+recipients:
+  - joysmemorymosaic@gmail.com
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

@@ -1,0 +1,23 @@
+uuid: efeb435d-d06b-458a-9705-5b6414af8301
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.blog_train
+  module:
+    - link
+id: node.blog_train.field_link
+field_name: field_link
+entity_type: node
+bundle: blog_train
+label: Links
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link
