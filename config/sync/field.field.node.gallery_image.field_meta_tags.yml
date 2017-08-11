@@ -1,0 +1,21 @@
+uuid: 7ce3d3a1-741f-48c3-add7-64477c55e026
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.gallery_image
+  module:
+    - metatag
+id: node.gallery_image.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: gallery_image
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag
