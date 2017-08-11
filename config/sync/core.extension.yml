@@ -43,6 +43,7 @@ module:
   seo_checklist: 0
   shortcut: 0
   site_verify: 0
+  sitemap: 0
   system: 0
   taxonomy: 0
   text: 0
