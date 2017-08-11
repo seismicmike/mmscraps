@@ -31,7 +31,7 @@ codesnippet:
   before: ''
   after: ''
 translation_set: false
-cache: false
+cache: true
 debug: false
 _core:
   default_config_hash: 5YkLBJiAXgH9BDLkDIb1ozqfCXWwvZggf4XfcXgfjzc

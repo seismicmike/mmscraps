@@ -4,8 +4,8 @@ status: true
 dependencies: {  }
 id: NXhscRe0440PFpI5dSznEVgmauL25KojD7u4e9aZwOM
 label: 'http://default/'
-chunks: null
-links: null
-max_filesize: null
+chunks: 1
+links: 1
+max_filesize: 262
 context: {  }
-updated: null
+updated: 1502459014
