@@ -15,7 +15,7 @@ immutable: true
 js:
   brotli: true
   fix_type: true
-  preserve_external: false
+  preserve_external: null
 skip_enabled_preprocess_check: false
 show_bypass_cookie_message: true
 symlinksifownermatch: false
