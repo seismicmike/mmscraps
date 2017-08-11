@@ -1,0 +1,5 @@
+id: security_review-base_url_set
+settings:
+  method: token
+_core:
+  default_config_hash: XAbWnC32-9vQCHHwj7zg0vAxleJWfqai4oVftE8sfRQ
