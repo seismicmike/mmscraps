@@ -1,5 +1,6 @@
 module:
   action: 0
+  advagg: 0
   automated_cron: 0
   backup_migrate: 0
   block: 0
@@ -15,7 +16,9 @@ module:
   ctools: 0
   datetime: 0
   dblog: 0
+  diff: 0
   dynamic_page_cache: 0
+  easy_breadcrumb: 0
   editor: 0
   field: 0
   field_ui: 0
@@ -39,9 +42,12 @@ module:
   redirect: 0
   scheduler: 0
   search: 0
+  search404: 0
+  security_review: 0
   seo_checklist: 0
   shortcut: 0
   site_verify: 0
+  sitemap: 0
   system: 0
   taxonomy: 0
   text: 0
@@ -51,6 +57,7 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  yoast_seo: 0
   menu_link_content: 1
   pathauto: 1
   xmlsitemap: 1

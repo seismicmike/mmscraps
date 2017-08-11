@@ -1,0 +1,113 @@
+progress:
+  '#changed': 1502463469
+  '#changed_by': '1'
+  '#completed_items': 36
+  '#items':
+    install_and_enable_seo_checklist_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_composer_command_line_tool:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_drush_command_line_tool:
+      '#completed': 1502463469
+      '#uid': '1'
+    show_cli_commands:
+      '#completed': 1502463469
+      '#uid': '1'
+    enable_clean_urls:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_redirect_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_the_redirect_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_pathauto_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_pathauto_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    create_pathauto_patterns:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_metatag_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_xml_sitemap_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_xml_sitemap_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    set_up_cron:
+      '#completed': 1502463469
+      '#uid': '1'
+    get_a_google_account:
+      '#completed': 1502463469
+      '#uid': '1'
+    verify_with_google_search_console:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_google_analytics_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_google_analytics_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    sign_in_to_google_analytics_and_create_an_analytics_property_for_your_website:
+      '#completed': 1502463469
+      '#uid': '1'
+    cache_the_google_analytics_code:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_easy_breadcrumbs_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_easy_breadcrumbs_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_sitemap_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_sitemap_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_search_404_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_search_404_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_yoast_seo_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    turn_on_create_new_revisions_for_all_content:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_diff_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_scheduler_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_the_scheduler_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_security_review_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_security_review_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    adjust_performance_admin_settings:
+      '#completed': 1502463469
+      '#uid': '1'
+    install_and_enable_advanced_css_js_aggregation_module:
+      '#completed': 1502463469
+      '#uid': '1'
+    configure_advanced_cssjs_aggregation_module:
+      '#completed': 1502463469
+      '#uid': '1'

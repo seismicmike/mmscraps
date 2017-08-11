@@ -1,11 +1,12 @@
-account: ''
+account: UA-104397430-1
 domain_mode: 0
 cross_domains: ''
 visibility:
   request_path_mode: 0
-  request_path_pages: "/admin\n/admin/*\n/batch\n/node/add*\n/node/*/*\n/user/*/*"
+  request_path_pages: "/admin\r\n/admin/*\r\n/batch\r\n/node/add*\r\n/node/*/*\r\n/user/*/*"
   user_role_mode: 0
-  user_role_roles: {  }
+  user_role_roles:
+    anonymous: anonymous
   user_account_mode: 0
 track:
   outbound: true
@@ -30,7 +31,7 @@ codesnippet:
   before: ''
   after: ''
 translation_set: false
-cache: false
+cache: true
 debug: false
 _core:
   default_config_hash: 5YkLBJiAXgH9BDLkDIb1ozqfCXWwvZggf4XfcXgfjzc
