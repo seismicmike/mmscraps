@@ -7,16 +7,16 @@ dependencies:
 id: blog_trains
 label: 'Blog Trains'
 type: 'canonical_entities:node'
-pattern: 'blog-train/[node:field_date:date:html_date]'
+pattern: 'blog-train/[node:title]'
 selection_criteria:
-  365f694f-9b3e-456b-8b71-8f9d575f1507:
+  3f834e3e-ff1f-44c7-ab74-36d541a62d1c:
     id: node_type
     bundles:
       blog_train: blog_train
     negate: false
     context_mapping:
       node: node
-    uuid: 365f694f-9b3e-456b-8b71-8f9d575f1507
+    uuid: 3f834e3e-ff1f-44c7-ab74-36d541a62d1c
 selection_logic: and
 weight: -5
 relationships: {  }
