@@ -1,0 +1,22 @@
+uuid: 74ec9c2f-022c-4ed8-b660-98fc2110c84b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: blog_trains
+label: 'Blog Trains'
+type: 'canonical_entities:node'
+pattern: 'blog-train/[node:field_date:date:html_date]'
+selection_criteria:
+  365f694f-9b3e-456b-8b71-8f9d575f1507:
+    id: node_type
+    bundles:
+      blog_train: blog_train
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 365f694f-9b3e-456b-8b71-8f9d575f1507
+selection_logic: and
+weight: -5
+relationships: {  }

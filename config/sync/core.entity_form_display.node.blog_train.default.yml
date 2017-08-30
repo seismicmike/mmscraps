@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.blog_train.field_blog_train_link
+    - field.field.node.blog_train.field_date
     - field.field.node.blog_train.field_image
     - field.field.node.blog_train.field_link
     - field.field.node.blog_train.field_meta_tags
@@ -11,6 +12,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.blog_train
   module:
+    - datetime
     - field_group
     - image
     - link
@@ -25,7 +27,7 @@ third_party_settings:
         - field_image
         - field_blog_train_link
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: fieldset
       format_settings:
         id: ''
@@ -40,7 +42,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -52,6 +54,12 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_date:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
   field_image:
     weight: 4
     settings:
@@ -61,7 +69,7 @@ content:
     type: image_image
     region: content
   field_link:
-    weight: 2
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -83,7 +91,7 @@ content:
     region: content
   path:
     type: path
-    weight: 8
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -91,17 +99,17 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 5
+    weight: 6
     third_party_settings: {  }
     region: content
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 9
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     region: content
   scheduler_settings:
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -109,7 +117,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 7
     third_party_settings: {  }
     region: content
   title:
@@ -122,7 +130,7 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 4
     settings:
       match_operator: CONTAINS
       size: 60
@@ -131,7 +139,7 @@ content:
     region: content
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 10
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     region: content
