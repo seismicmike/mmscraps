@@ -23,7 +23,7 @@ third_party_settings:
     unpublish_revision: false
 name: 'Blog Train'
 type: blog_train
-description: ''
+description: 'A blog train update'
 help: ''
 new_revision: true
 preview_mode: 1
