@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.blog_train.field_blog_train_link
-    - field.field.node.blog_train.field_date
     - field.field.node.blog_train.field_image
     - field.field.node.blog_train.field_link
     - field.field.node.blog_train.field_meta_tags
@@ -40,7 +39,6 @@ content:
           text: ''
 hidden:
   field_blog_train_link: true
-  field_date: true
   field_link: true
   field_meta_tags: true
   field_yoast_seo: true
