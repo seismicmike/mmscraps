@@ -4,27 +4,42 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.blog_train.body
+    - field.field.node.blog_train.field_blog_train_link
+    - field.field.node.blog_train.field_image
     - field.field.node.blog_train.field_link
+    - field.field.node.blog_train.field_meta_tags
+    - field.field.node.blog_train.field_yoast_seo
     - node.type.blog_train
   module:
-    - text
+    - image
+    - linked_field
     - user
 id: node.blog_train.teaser
 targetEntityType: node
 bundle: blog_train
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
+  field_image:
+    type: image
+    weight: 0
+    region: content
+    label: above
     settings:
-      trim_length: 600
-    third_party_settings: {  }
-    region: content
-  links:
-    weight: 100
-    region: content
+      image_style: ''
+      image_link: ''
+    third_party_settings:
+      linked_field:
+        linked: '1'
+        destination: field_blog_train_link
+        advanced:
+          title: ''
+          target: ''
+          class: ''
+          rel: ''
+          text: ''
 hidden:
+  field_blog_train_link: true
   field_link: true
+  field_meta_tags: true
+  field_yoast_seo: true
+  links: true

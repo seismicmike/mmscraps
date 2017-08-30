@@ -1,20 +1,20 @@
-uuid: efeb435d-d06b-458a-9705-5b6414af8301
+uuid: ad4465fd-9500-4c0d-8d1c-97a3c564e322
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_link
+    - field.storage.node.field_blog_train_link
     - node.type.blog_train
   module:
     - link
-id: node.blog_train.field_link
-field_name: field_link
+id: node.blog_train.field_blog_train_link
+field_name: field_blog_train_link
 entity_type: node
 bundle: blog_train
-label: 'The rest of the Blog Train Links'
+label: 'Our Contribution Link'
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:

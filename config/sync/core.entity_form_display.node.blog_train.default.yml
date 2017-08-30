@@ -3,40 +3,65 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.blog_train.body
+    - field.field.node.blog_train.field_blog_train_link
+    - field.field.node.blog_train.field_image
     - field.field.node.blog_train.field_link
     - field.field.node.blog_train.field_meta_tags
     - field.field.node.blog_train.field_yoast_seo
+    - image.style.thumbnail
     - node.type.blog_train
   module:
+    - field_group
+    - image
     - link
     - metatag
     - path
     - scheduler
-    - text
     - yoast_seo
+third_party_settings:
+  field_group:
+    group_our_contribution:
+      children:
+        - field_image
+        - field_blog_train_link
+      parent_name: ''
+      weight: 1
+      format_type: fieldset
+      format_settings:
+        id: ''
+        classes: ''
+        description: ''
+        required_fields: true
+      label: 'Our Contribution'
 id: node.blog_train.default
 targetEntityType: node
 bundle: blog_train
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 31
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_blog_train_link:
+    weight: 5
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_image:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
   field_link:
-    weight: 32
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -44,13 +69,13 @@ content:
     type: link_default
     region: content
   field_meta_tags:
-    weight: 33
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_yoast_seo:
-    weight: 34
+    weight: 13
     settings:
       body: body
     third_party_settings: {  }
@@ -58,7 +83,7 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -66,28 +91,30 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 5
     third_party_settings: {  }
     region: content
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     region: content
   scheduler_settings:
-    weight: 20
+    weight: 7
     region: content
+    settings: {  }
+    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 6
     third_party_settings: {  }
     region: content
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -95,7 +122,7 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 3
     settings:
       match_operator: CONTAINS
       size: 60
@@ -104,7 +131,7 @@ content:
     region: content
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     region: content
