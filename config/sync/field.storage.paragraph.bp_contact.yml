@@ -1,0 +1,22 @@
+uuid: a80e9938-3312-4889-a517-34c9ca36bd65
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - paragraphs
+_core:
+  default_config_hash: SMpNHVX0DuemWlK1e5SAlp3CTOG79CFnBjYepPia7JY
+id: paragraph.bp_contact
+field_name: bp_contact
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: contact_form
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

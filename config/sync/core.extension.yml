@@ -5,6 +5,7 @@ module:
   backup_migrate: 0
   block: 0
   block_content: 0
+  bootstrap_paragraphs: 0
   breakpoint: 0
   checklistapi: 0
   ckeditor: 0
@@ -12,6 +13,7 @@ module:
   comment: 0
   config: 0
   contact: 0
+  contact_formatter: 0
   contextual: 0
   ctools: 0
   datetime: 0
@@ -20,6 +22,7 @@ module:
   dynamic_page_cache: 0
   easy_breadcrumb: 0
   editor: 0
+  entity_reference_revisions: 0
   field: 0
   field_ui: 0
   file: 0
@@ -36,6 +39,7 @@ module:
   node: 0
   options: 0
   page_cache: 0
+  paragraphs: 0
   path: 0
   quickedit: 0
   rdf: 0
@@ -57,6 +61,7 @@ module:
   update: 0
   user: 0
   views_ui: 0
+  viewsreference: 0
   yoast_seo: 0
   menu_link_content: 1
   pathauto: 1

@@ -1,0 +1,25 @@
+uuid: 9a16e992-ab0b-4987-9974-16e62a8e5590
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.bp_contact
+    - paragraphs.paragraphs_type.bp_contact
+_core:
+  default_config_hash: kNko_DrVt5-c1Iu7-JOOAM7hQtZW43psfQOlzP7GsBc
+id: paragraph.bp_contact.bp_contact
+field_name: bp_contact
+entity_type: paragraph
+bundle: bp_contact
+label: 'Contact Form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:contact_form'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference
