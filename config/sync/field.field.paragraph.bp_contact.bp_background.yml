@@ -1,0 +1,23 @@
+uuid: 039775d7-1774-45de-b586-87b61aa019e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.bp_background
+    - paragraphs.paragraphs_type.bp_contact
+  module:
+    - options
+_core:
+  default_config_hash: 14MIKHP-RKHqvUOzgWms0hicAy2J-nRHXdchkXc8jjk
+id: paragraph.bp_contact.bp_background
+field_name: bp_background
+entity_type: paragraph
+bundle: bp_contact
+label: Background
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

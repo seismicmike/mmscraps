@@ -1,0 +1,23 @@
+uuid: fefc17f3-828b-42e2-9430-772008075e63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.bp_width
+    - paragraphs.paragraphs_type.bp_contact
+  module:
+    - options
+_core:
+  default_config_hash: GJMzK7bEhHcexCAFFcUU_Eo4X8fWqcdZKpzvArSQ5o0
+id: paragraph.bp_contact.bp_width
+field_name: bp_width
+entity_type: paragraph
+bundle: bp_contact
+label: Width
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

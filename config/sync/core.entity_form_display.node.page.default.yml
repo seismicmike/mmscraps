@@ -4,11 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.page.body
+    - field.field.node.page.field_components
     - field.field.node.page.field_meta_tags
     - field.field.node.page.field_yoast_seo
     - node.type.page
   module:
     - metatag
+    - paragraphs
     - path
     - scheduler
     - text
@@ -22,7 +24,7 @@ mode: default
 content:
   body:
     type: text_textarea_with_summary
-    weight: 31
+    weight: 3
     settings:
       rows: 9
       summary_rows: 3
@@ -31,18 +33,30 @@ content:
     region: content
   created:
     type: datetime_timestamp
-    weight: 10
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_components:
+    type: entity_reference_paragraphs
+    weight: 4
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
   field_meta_tags:
-    weight: 32
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: metatag_firehose
     region: content
   field_yoast_seo:
-    weight: 33
+    weight: 12
     settings:
       body: body
     third_party_settings: {  }
@@ -50,7 +64,7 @@ content:
     region: content
   path:
     type: path
-    weight: 30
+    weight: 8
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -58,28 +72,30 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 15
+    weight: 5
     third_party_settings: {  }
     region: content
   publish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
   scheduler_settings:
-    weight: 20
+    weight: 7
     region: content
+    settings: {  }
+    third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 6
     third_party_settings: {  }
     region: content
   title:
     type: string_textfield
-    weight: -5
+    weight: 0
     settings:
       size: 60
       placeholder: ''
@@ -87,7 +103,7 @@ content:
     region: content
   uid:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 1
     settings:
       match_operator: CONTAINS
       size: 60
@@ -96,7 +112,7 @@ content:
     region: content
   unpublish_on:
     type: datetime_timestamp_no_default
-    weight: 30
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }

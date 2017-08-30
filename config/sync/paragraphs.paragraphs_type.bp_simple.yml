@@ -1,0 +1,9 @@
+uuid: b14f0be8-9a46-4642-884b-29b742c81a41
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: U5OgkeyHhY-ghqwBwG0_dh8HuRGDq0ZbPIJx6UHU9FA
+id: bp_simple
+label: Simple
+behavior_plugins: {  }

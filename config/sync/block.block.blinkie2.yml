@@ -11,7 +11,7 @@ dependencies:
 id: blinkie2
 theme: blog_themes
 region: sidebar_first
-weight: null
+weight: 0
 provider: null
 plugin: 'block_content:30372ba5-4813-4fb6-9e05-5b6ba81623c8'
 settings:

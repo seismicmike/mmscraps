@@ -1,0 +1,9 @@
+uuid: f1638fc2-accc-4aa2-9a5b-230b4c995dc3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: qP6TuG6Wl--0ukK1U8eLGK9B9YbbaTzGqXMcWbjv6gs
+id: bp_column_wrapper
+label: 'Column Wrapper'
+behavior_plugins: {  }
