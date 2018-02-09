@@ -1,0 +1,16 @@
+name: My Memory Mosaic
+type: theme
+base theme: classy
+description: 'A Custom Theme for MMScraps'
+core: 8.x
+
+regions:
+  header: 'Header'
+  content: 'Content'
+  content_bottom: 'Content (bottom)'
+  primary_menu: 'Primary menu'
+  banner_top: 'Banner (top)'
+  banner_bottom: 'Banner (bottom)'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
